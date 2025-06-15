@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Creating</title>
+</head>
+<body>
+     <form
+      action="#"
+      method="post"
+      name="f"
+      style="
+        width: 200px;
+        margin: 0px auto;
+        border: 1px solid gray;
+        padding: 10px;
+      "
+    >
+      <div>
+        Name<br />
+        <input type="text" name="txtName" />
+      </div>
+
+      <div>
+        Address<br />
+        <textarea name="txtAddress"></textarea>
+      </div>
+
+      <div>
+        Course<br />
+        <select name="txtCourse">
+          <option value="MBA">MBA</option>
+          <option value="BBA">BBA</option>
+          <option value="CIS">CIS</option>
+          <option value="EEE">EEE</option>
+        </select>
+      </div>
+
+      <div>
+        Sex<br />
+        Male<input type="radio" name="rdoSex" value="Male" /> Female<input
+          type="radio"
+          name="rdoSex"
+          value="Female"
+        />
+      </div>
+
+      <div>
+        Subject<br />
+        English<input type="checkbox" value="English" name="chkSubject" />
+        Bengali<input type="checkbox" value="Bengali" name="chkSubject" />
+
+        Math<input type="checkbox" value="Math" name="chkSubject" />
+      </div>
+
+      <div>
+        <input type="button" onclick="dyn_window()" value="Submit" />
+      </div>
+    </form>
+    <script src="form.js"></script>
+</body>
+</html>
