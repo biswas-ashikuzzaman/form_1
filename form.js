@@ -21,7 +21,7 @@ function dyn_window() {
           }
         }
 
-        // create new window here
+        // create new window here d
 
         a = open("", "", "width=200px,height=200px");
 
