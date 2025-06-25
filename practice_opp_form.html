@@ -1,37 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <fieldset>
-        <legend> Student Registration Form</legend>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+      }
+      .jadu {
+        background-color: grey;
+        padding: 15px;
+      }
+      p {
+        display: inline-block;
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jadu">
+      <fieldset>
+        <legend style="text-align: center;">Student Registration Form</legend>
         <form action="" id="form1">
-            <label for="sfn">First Name: <br>
-            <input type="text" name="sfn">
-        </label> <br> <br>
-         <label for="sfn">Last Name: <br>
-            <input type="text" name="sln">
-         </label> <br> <br>
-          <label for="sfn">Student Id: <br>
-            <input type="number" name="sid">
-         </label> <br> <br>
-         <label for="Gender">Gender: <br>
-        <input type="radio" name="sgender" value="Male">Male 
-        <input type="radio" name="sgender" value="Female">Female
-        <input type="radio" name="sgender" value="Others">Others
-        </label> <br> <br>
-         <label for="Course">Course: <br>
-        <input type="checkbox" name="scourse" value="HTML">HTML
-        <input type="checkbox" name="scourse" value="CSS">CSS
-        <input type="checkbox" name="scourse" value="PHP">PHP
-        </label> <br> <br>
-        <button type="submit">Submit</button>
-
+          <p>First Name:</p>
+          <input type="text" name="sfn" />
+          <br />
+          <br />
+          <p>Last Name:</p>
+          <input type="text" name="sln" />
+          <br />
+          <br />
+          <p>Student Id:</p>
+          <input type="number" name="sid" />
+          <br />
+          <br />
+          <p>Email:</p>
+          <input type="email" name="semail"> <br> <br>
+          <p>Gender:</p>
+          <input type="radio" name="sgender" value="Male" />Male
+          <input type="radio" name="sgender" value="Female" />Female
+          <input type="radio" name="sgender" value="Others" />Others <br />
+          <br />
+          <p>Course:</p>
+          <input type="checkbox" name="scourse" value="HTML" />HTML
+          <input type="checkbox" name="scourse" value="CSS" />CSS
+          <input type="checkbox" name="scourse" value="PHP" />PHP <br />
+          <br />
+          <!-- <input type="submit" /> -->
+           <button type="submit" style="background-color: blue; color: azure;">Submit</button>
         </form>
-    </fieldset>
-    <script src="practice_opp_form.js"></script>
-</body>
+      </fieldset>
+    </div>
+    <script>
+      class FormValues {
+        constructor(formData) {
+          for (let [name, value] of formData) {
+            this[name] = formData.getAll(name).join(",");
+          }
+        }
+        getDisplay() {
+          var result = "First Name:" + this.sfn + "<br>";
+          result += "last Name:" + this.sln + "<br>";
+          result += "Student ID:" + this.sid + "<br>";
+          result += "Email:" + this.semail + "<br>";
+
+          result += "Gender:" + this.sgender + "<br>";
+          result += "Course:" + this.scourse + "<br>";
+          var win = window.open("", "", "width=400,height=400");
+          win.document.write(result);
+        }
+      }
+      form1.onsubmit = async (e) => {
+        e.preventDefault();
+        var fm = document.querySelector("#form1");
+        var form_data = new FormData(fm);
+        var f = new FormValues(form_data);
+        f.getDisplay();
+      };
+    </script>
+  </body>
 </html>
