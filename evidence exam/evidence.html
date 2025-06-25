@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Evidence Exam</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        p {
+            display: inline-block;
+            width: 120px;
+        }
+        .laltu{
+            background-color: gray;
+            padding: 15px;
+        }
+        .btn{
+            margin-left: 140px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="laltu">
+    <fieldset>
+        <legend style="text-align: center;">Student Regestration Form</legend>
+        <form name="form1" id="form1">
+            <p>First Name:</p>
+            <input type="text" name="fname" id="fname" placeholder="enter your first name"> <br>
+            <p>Last Name:</p>
+            <input type="text" name="lname"id="lname" placeholder="enter your last name"> <br>
+            <p>E-mail:</p>
+            <input type="email" name="email" id="email" placeholder="enter your email"> <br>
+            <p>Gender:</p>
+            <input type="radio" name="gender" id="male" value="Male"> Male
+            <input type="radio" name="gender" id="female" value="Female"> Female
+            <input type="radio" name="gender" id="other" value="Others"> Others
+            <br>
+            <p>Course Name:</p>
+            <input type="checkbox" name="course"id="html" value="HTML">HTML
+            <input type="checkbox" name="course" id="css" value="CSS">CSS
+            <input type="checkbox" name="course" id="php" value="PHP">PHP
+            <br>
+            <input type="submit" class="btn" style="background-color: blue; color: azure;">
+        </form>
+    </fieldset>
+    </div>
+    <script>
+    class MyForm{
+        constructor(myData){
+            for (let[name,value] of myData){
+                this[name]=myData.getAll(name).join(",");
+            }
+        }
+        getMe(){
+            let result = `
+            First Name: ${this.fname} <br>
+            Last Name: ${this.lname} <br>
+            E-mail: ${this.email} <br>
+            Gender: ${this.gender} <br>
+            Courses: ${this.course} <br>
+            `;
+            let newWindow = window.open("","","width=400,height=400");
+            newWindow.document.write(result);
+        }
+    }
+    form1.onsubmit = async (e) =>{
+        e.preventDefault();
+        const newForm = document.getElementById("form1");
+        const formData = new FormData(newForm);
+        const finalForm = new MyForm(formData);
+        finalForm.getMe();
+    }
+    </script>
+</body>
+</html>
