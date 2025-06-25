@@ -6,6 +6,32 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <fieldset>
+        <legend> Student Registration Form</legend>
+        <form action="" id="form1">
+            <label for="sfn">First Name: <br>
+            <input type="text" name="sfn">
+        </label> <br> <br>
+         <label for="sfn">Last Name: <br>
+            <input type="text" name="sln">
+         </label> <br> <br>
+          <label for="sfn">Student Id: <br>
+            <input type="number" name="sid">
+         </label> <br> <br>
+         <label for="Gender">Gender: <br>
+        <input type="radio" name="sgender" value="Male">Male 
+        <input type="radio" name="sgender" value="Female">Female
+        <input type="radio" name="sgender" value="Others">Others
+        </label> <br> <br>
+         <label for="Course">Course: <br>
+        <input type="checkbox" name="scourse" value="HTML">HTML
+        <input type="checkbox" name="scourse" value="CSS">CSS
+        <input type="checkbox" name="<select [(ngModel)]="model">
+            <option *ngFor="let item of list" [value]="item">{{item}}</option>
+        </select>" value="Others">Others
+        </label> <br> <br>
+
+        </form>
+    </fieldset>
 </body>
 </html>
